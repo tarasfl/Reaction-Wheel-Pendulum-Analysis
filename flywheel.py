@@ -61,3 +61,9 @@ class Flywheel:
         return (self.density * self.omega**2 *
                 (3.3 * self.outer_radius**2 + 0.7 * self.inner_radius**2) /
                 (4.0 ))
+
+    def angular_momentum(self, inertia):
+        """Return angular momentum for a given flywheel inertia."""
+        if inertia < 0:
+            raise ValueError("inertia cannot be negative")
+        return inertia * self.omega
